@@ -1,0 +1,42 @@
+html, body {
+    background-color: #393939;
+    margin: 0;
+    padding: 0;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.txt{
+    color: #393939;
+}
+
+.header {
+    background-image: linear-gradient(to bottom right, #F9D796, #F39F86);
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.header-btns {
+    display: flex;
+    gap: 20px;
+}
+
+
+.footer{
+    background-image: linear-gradient(to bottom right,  #F9D796, #F39F86);
+    
+    display: flex;
+    justify-content: flex-start;
+    
+
+}
+
+.footer-info {
+    width: 30vw;
+    display: flex;
+    flex-wrap: wrap;
+    
+    gap: 20px;
+}
