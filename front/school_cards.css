@@ -1,0 +1,146 @@
+html,
+body {
+    background-color: #393939;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.txt {
+    color: #393939;
+}
+
+.header {
+    background-image: linear-gradient(to bottom right, #F9D796, #F39F86);
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header-btns {
+    display: flex;
+    gap: 20%;
+}
+
+.header-link {
+    text-decoration: none;
+}
+
+.footer {
+    background-image: linear-gradient(to bottom right, #F9D796, #F39F86);
+    display: flex;
+    justify-content: flex-start;
+    height: 8vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+}
+
+.footer-info {
+    display: flex;
+    gap: 15px;
+    margin-left: 2%;
+}
+
+.header-b #txt {
+    margin: 5px;
+    border: 2px solid;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    left: 180px;
+    top: 100px;
+}
+
+.child2 {
+    /* border: 2px solid; */
+    width: 600px;
+    height: 300px;
+}
+
+.child1 {
+    /* border: 2px solid; */
+    width: 600px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.bus5 {
+    position: relative;
+    /* bottom: 10px; */
+}
+
+.bus1 {
+    margin: 3px;
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    width: 500px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.bus2 {
+    margin: 3px;
+    padding: 10px;
+    border: 2px solid yellow;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    width: 500px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.bus3,
+.bus4 {
+    padding: 10px;
+    border: 2px solid white;
+    border-radius: 10px;
+    color: white;
+    font-size: 25px;
+    text-decoration: none;
+    width: 500px;
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+a:link {
+    text-decoration: none;
+}
+
+.chosen-link {
+    border: 2px solid #393939;
+    border-radius: 20px;
+    padding: 0.5em;
+}
+
+img {
+    position: relative;
+    left: 20px;
+    margin-right: 15px;
+}
+
+.child1 img {
+    height: 25px;
+    padding: 5px;
+}
+
+.child2 img {
+    position: relative;
+    right: 10px
+}
