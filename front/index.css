@@ -20,23 +20,22 @@ html, body {
 
 .header-btns {
     display: flex;
-    gap: 20px;
+    gap: 20%;
 }
 
 
 .footer{
     background-image: linear-gradient(to bottom right,  #F9D796, #F39F86);
-    
     display: flex;
     justify-content: flex-start;
-    
-
+    height: 8vh;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
 }
 
 .footer-info {
-    width: 30vw;
     display: flex;
-    flex-wrap: wrap;
-    
-    gap: 20px;
+    gap: 15px;
+    margin-left: 2%;
 }
