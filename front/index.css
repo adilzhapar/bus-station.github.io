@@ -70,3 +70,9 @@ html, body {
 ul {
     list-style: circle;
 }
+
+button {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
