@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Station</title>
-    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/styles/register.css">
     <link rel="icon" href="./assets/imgs/bus.png" type="image/icon type">
 
 </head>
@@ -37,16 +37,50 @@
         </div>
 
         <div class="content">
-            <img src="./assets/imgs/main-pic.png" alt="bus" width="50%">
-            <div class="content-text">
-                <h1 class="content-txt">All about buses of KZ</h1>
-                <ul>
-                    <li class="content-li content-txt">watch routes of city buses</li>
-                    <li class="content-li content-txt">buy transport cards</li>
-                    <li class="content-li content-txt">buy intercity tickets</li>
-                    <li class="content-li content-txt">see ratings of companies</li>
-                </ul>
-            </div>
+            <p><a href="register.php">Register</a> | <a href="login.php">Login</a></p>
+
+            <form action="" method="POST">
+
+                <fieldset>
+
+                    Username: <input type="text" name="user"><br />
+                    Password: <input type="password" name="pass"><br />
+                    <input type="submit" value="Login" name="submit" />
+
+                </fieldset>
+
+            </form>
+            <?php
+            if (isset($_POST["submit"])) {
+                if (!empty($_POST['user']) && !empty($_POST['pass'])) {
+                    $user = $_POST['user'];
+                    $pass = $_POST['pass'];
+                    $dbhost = "localhost";
+                    $dbname = "webMKM";
+                    $dbuser = "adil";
+                    $dbpass = "jukilo999";
+                    $dbport = 3306;
+                    // Создаем соединение
+                    $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname, $dbport);
+
+
+                    $query = mysqli_query($conn, "SELECT * FROM users WHERE username='$user' AND pass='$pass'");
+                    $numrows = mysqli_num_rows($query);
+                    if ($numrows == 0) {
+                        echo "failure!";
+                    } else {
+                        echo "Welcome!";
+                        session_start();
+                        $_SESSION['logged'] = true;
+                        $_SESSION['username'] = $user;
+                        
+                        header("location: profile.php");
+                    }
+                } else {
+                    echo "All fields are required!";
+                }
+            }
+            ?>
         </div>
 
         <div class="footer">
@@ -59,6 +93,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>

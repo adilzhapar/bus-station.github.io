@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html>
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Bus Station</title>
-    <link rel="stylesheet" href="assets/styles/index.css">
+    <link rel="stylesheet" href="assets/styles/profile.css">
     <link rel="icon" href="./assets/imgs/bus.png" type="image/icon type">
 
 </head>
@@ -32,21 +32,23 @@
             </a>
             <div class="header-btns">
                 <a href="https://t.me/zhaparka" target="_blank"><img src="./assets/imgs/phone.png" alt="phone" width="90%"></a>
-                <a href="profile.php"><img src="./assets/imgs/info.png" alt="info" width="90%"></a>
+                <a href="login.php"><img src="./assets/imgs/info.png" alt="info" width="90%"></a>
             </div>
         </div>
 
         <div class="content">
-            <img src="./assets/imgs/main-pic.png" alt="bus" width="50%">
-            <div class="content-text">
-                <h1 class="content-txt">All about buses of KZ</h1>
-                <ul>
-                    <li class="content-li content-txt">watch routes of city buses</li>
-                    <li class="content-li content-txt">buy transport cards</li>
-                    <li class="content-li content-txt">buy intercity tickets</li>
-                    <li class="content-li content-txt">see ratings of companies</li>
-                </ul>
-            </div>
+            <?php
+                session_start();
+                if($_SESSION['logged'] == true){
+                    echo "Logged";
+
+                }else{
+                    echo "not logged";
+                }
+
+            ?>
+            <a href="logout.php">Logout</a>
+            
         </div>
 
         <div class="footer">
@@ -59,6 +61,8 @@
             </div>
         </div>
     </div>
+
+
 </body>
 
 </html>
