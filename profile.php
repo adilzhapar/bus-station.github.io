@@ -45,9 +45,7 @@ function canDelete($departure){
     }else{
         return true;
     }
-    echo date("Y", $departure);
-    echo date("m", $departure);
-    echo date("d", $departure);
+    
 }
 ?>
 
@@ -62,10 +60,10 @@ function canDelete($departure){
             <a class="header-link" href="transport_cards.html">
                 <h2 class="txt">Transport cards</h2>
             </a>
-            <a class="header-link" href="intercity.html">
+            <a class="header-link" href="intercity.php">
                 <h2 class="chosen-link txt">Intercity</h2>
             </a>
-            <a class="header-link" href="tickets.html">
+            <a class="header-link" href="tickets.php">
                 <h2 class="txt">Tickets</h2>
             </a>
             <a class="header-link" href="companies.html">
@@ -99,7 +97,6 @@ function canDelete($departure){
                     echo '<h4>Username: ' . $row['username'] . '</h4>';
                     echo '<h4>Full Name: ' . $row['firstName'] . ' ' . $row['lastName'] . '</h4>';
                     echo '<h4>Birthday: ' . $row['birthday'] . '</h4>';
-                    echo '<h4>Number of orders: ' . $row['numberOfOrders'] . '</h4>';
                     
                     if (!is_null($row['creditCard'])) {
                         echo '<h4>Card: ' . $row['creditCard'] . '</h4>';
@@ -175,23 +172,24 @@ function canDelete($departure){
                     echo "<td>" . $row['amount'] . "</td>";
                     echo "<td>" . $row['finalPrice'] . "</td>";
                     echo $row['isActive'] == TRUE ? "<td>Active</td>" : "<td>Not active</td>";
-                    ?>
-                    <td>
-                        <form action="" method="POST">
-                            <input class="inp-btn" type="submit" value="Cancel" name="cancel" />
-                        </form>
-                    </td>
-                    <?php
+                    
+                    echo '<td>';
+                    echo '<form action="" method="POST">';
+                    echo '<input class="inp-btn" type="submit" value="Cancel" name="cancel' . $row["order_id"] . '" />';
+                    echo '</form>';
+                    echo '</td>';
+                    
                     echo "</tr>";
-                    if(isset($_POST['cancel'])){
+                    if(isset($_POST['cancel' . $row['order_id']])){
                         $dt = $row['departure'];
                         $id = $row['order_id'];
-                        if(canDelete($dt)){
-                            $query4 = mysqli_query($conn, "DELETE FROM orders where order_id=$id");
-                            echo '<script>parent.window.location.reload(true);</script>';
-                        }else{
-                            echo "You can not delete on day of departure";
-                        }
+                        $query4 = mysqli_query($conn, "DELETE FROM orders where order_id={$row['order_id']}");
+                        echo '<script>parent.window.location.reload(true);</script>';
+                        // if(canDelete($dt)){
+                        //     $query4 = mysqli_query($conn, "DELETE FROM orders where order_id=$id");
+                        // }else{
+                        //     echo "You can not delete on day of departure";
+                        // }
                     }
                 }
 

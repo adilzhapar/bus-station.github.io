@@ -15,6 +15,7 @@ orders_query = """INSERT INTO orders VALUES(
 orders_query2 = """INSERT INTO orders VALUES(
     1, 'zhaparka', 0, FALSE, 'cargo', FALSE, 0, 1, 26000, TRUE)"""
 
+cur.execute(orders_query)
 cur.execute(orders_query2)
 
 conn_object.commit()

@@ -21,10 +21,10 @@
             <a class="header-link" href="transport_cards.html">
                 <h2 class="txt">Transport cards</h2>
             </a>
-            <a class="header-link" href="intercity.html">
+            <a class="header-link" href="intercity.php">
                 <h2 class="txt">Intercity</h2>
             </a>
-            <a class="header-link" href="tickets.html">
+            <a class="header-link" href="tickets.php">
                 <h2 class="chosen-link txt">Tickets</h2>
             </a>
             <a class="header-link" href="companies.html">
@@ -36,34 +36,38 @@
             </div>
         </div>
 
-        <div class="content">
-            <div class="content-object">
-                <h3 class="content-address">Almaty - Semei</h3>
-                <h3 class="content-date">13.08.2022</h3>
-                <h5 class="content-company">Bus Travel</h5>
-                <a href=""><img src="./assets/imgs/phone.png" alt="phone" width="80%"></a>
-            </div>
-            <div class="content-object">
-                <h3 class="content-address">Almaty - Taraz</h3>
-                <h3 class="content-date">24.10.2022</h3>
-                <h5 class="content-company">Aviato</h5>
-                <a href=""><img src="./assets/imgs/phone.png" alt="phone" width="80%"></a>
-            </div>
-            <div class="content-object">
-                <h3 class="content-address">Astana - Taraz</h3>
-                <h3 class="content-date">11.11.2022</h3>
-                <h5 class="content-company">Kazzhol</h5>
-                <a href=""><img src="./assets/imgs/phone.png" alt="phone" width="80%"></a>
-            </div>
-            <div class="content-object">
-                <h3 class="content-address">Kokshetau - Aqtobe</h3>
-                <h3 class="content-date">13.12.2022</h3>
-                <h5 class="content-company">BusImix</h5>
-                <a href=""><img src="./assets/imgs/phone.png" alt="phone" width="80%"></a>
-            </div>
+        <div class="content DivWithScroll">
+            <?php
+            $dbhost = "localhost";
+            $dbname = "webMKM";
+            $dbuser = "adil";
+            $dbpass = "jukilo999";
+            $dbport = 3306;
+            // Создаем соединение
+            $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname, $dbport);
+
+            $query = mysqli_query($conn, "SELECT * FROM tickets");
+            while ($row = $query->fetch_assoc()) {
+                echo '<div class="content-object">';
+                echo '<p>' . $row['ticket_id'] . '</p>';
+                echo '<p>' . $row['cityA'] . '-' . $row['cityB'] . '</p>';
+                echo '<p>' . $row['departure'] . ':' . $row['arrival'] . '</p>';
+                echo '<p>' . $row['cost'] . '</p>';
+                echo '<form method="POST" action="">';
+                echo '<input type="submit" value="Buy" name="buy' . $row['ticket_id'] . '" />';
+                echo '</form>';
+                if (isset($_POST['buy' . $row['ticket_id']])) {
+                    session_start();
+                    $_SESSION['id'] = $row['ticket_id'];                    
+                    header("location:purchase.php ");
+                }
+
+                echo '</div>';
+            }
+            ?>
         </div>
 
-        
+
 
         <div class="footer">
             <div class="footer-info">

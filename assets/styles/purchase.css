@@ -34,7 +34,7 @@ html, body {
     justify-content: flex-start;
     height: 8vh;
     width: 100vw;
-    position: fixed;
+    position: absolute;
     bottom: 0;
 }
 
@@ -44,34 +44,6 @@ html, body {
     margin-left: 2%;
 }
 
-.chosen-link {
-    border: 2px solid #393939;
-    border-radius: 20px;
-    padding: 0.5em;
-}
-
-
-.content {
-    display: flex;
-    align-items: center;
-    margin-top: 3%;
-    flex-direction: column;
-}
-
-.content-object {
-    width: 40vw;
-    margin: 1%;
-    padding: 0.5%;
-    display: flex;
-    border: 2px solid whitesmoke;
+h4, h1{
     color: whitesmoke;
-    justify-content: space-around;
-    border-radius: 20px;
-    align-items: center;   
-}
-
-.DivWithScroll{
-    height:550px;
-    overflow:scroll;
-    overflow-x:hidden;
 }

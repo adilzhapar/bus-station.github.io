@@ -42,10 +42,10 @@ function isValid($number)
             <a class="header-link" href="transport_cards.html">
                 <h2 class="txt">Transport cards</h2>
             </a>
-            <a class="header-link" href="intercity.html">
+            <a class="header-link" href="intercity.php">
                 <h2 class="chosen-link txt">Intercity</h2>
             </a>
-            <a class="header-link" href="tickets.html">
+            <a class="header-link" href="tickets.php">
                 <h2 class="txt">Tickets</h2>
             </a>
             <a class="header-link" href="companies.html">
