@@ -10,6 +10,27 @@
     <link rel="icon" href="./assets/imgs/bus.png" type="image/icon type">
 
 </head>
+<?php
+function isValid($number)
+{
+    global $type;
+
+    $cardtype = array(
+        "visa"       => "/^4[0-9]{12}(?:[0-9]{3})?$/",
+        "mastercard" => "/^5[1-5][0-9]{14}$/",
+    );
+
+    if (preg_match($cardtype['visa'], $number)) {
+        $type = "visa";
+        return true;
+    } else if (preg_match($cardtype['mastercard'], $number)) {
+        $type = "mastercard";
+        return true;
+    } else {
+        return false;
+    }
+}
+?>
 
 <body>
     <div class="main">
@@ -37,24 +58,40 @@
         </div>
 
         <div class="content">
-            <p><a href="register.php">Register</a> | <a href="login.php">Login</a></p>
-
-            <form action="" method="POST">
+            <div class="links">
+                <a class="link chosen" href="register.php">Register</a> 
+                <span class="link">|</span>
+                <a class="link" href="login.php">Login</a>
+            </div>
+            <form action="" method="POST" class="reg-form">
 
                 <fieldset>
 
-                    Username: <input type="text" name="user"><br />
-                    Password: <input type="password" name="pass"><br />
-                    <input type="submit" value="Login" name="submit" />
+                    <div class="inp-pair"><h4 class="inp-tag">Username:</h4> <input class="inp" type="text" name="user"></div>
+                    <div class="inp-pair"><h4 class="inp-tag">Password:</h4> <input class="inp" type="password" name="pass"></div>
+                    <div class="inp-pair"><h4 class="inp-tag">Birthday:</h4> <input class="inp" type="text" placeholder="yyyy-mm-dd" value="" name="birthday"></div>
+                    <div class="inp-pair"><h4 class="inp-tag">First Name:</h4> <input class="inp" type="text" name="first_name"></div>
+                    <div class="inp-pair"><h4 class="inp-tag">Last Name:</h4> <input class="inp" type="text" name="last_name"></div>
+
+                    <div class="inp-pair"><h4 class="inp-tag">Card number: </h4><input class="inp" type="text" name="card"></div>
+
+                    <input class="inp-btn" type="submit" value="Register" name="submit" />
 
                 </fieldset>
 
             </form>
             <?php
             if (isset($_POST["submit"])) {
-                if (!empty($_POST['user']) && !empty($_POST['pass'])) {
+                if (
+                    !empty($_POST['user']) && !empty($_POST['pass']) && !empty($_POST['birthday'])
+                    && !empty($_POST['first_name']) && !empty($_POST['last_name'])
+                ) {
                     $user = $_POST['user'];
                     $pass = $_POST['pass'];
+                    $birthday = $_POST['birthday'];
+                    $first_name = $_POST['first_name'];
+                    $last_name = $_POST['last_name'];
+                    $card = $_POST['card'];
                     $dbhost = "localhost";
                     $dbname = "webMKM";
                     $dbuser = "adil";
@@ -64,20 +101,34 @@
                     $conn = mysqli_connect($dbhost, $dbuser, $dbpass, $dbname, $dbport);
 
 
-                    $query = mysqli_query($conn, "SELECT * FROM users WHERE username='$user' AND pass='$pass'");
+                    $query = mysqli_query($conn, "SELECT * FROM users WHERE username='$user'");
                     $numrows = mysqli_num_rows($query);
                     if ($numrows == 0) {
-                        echo "failure!";
+                        if(!isset($_POST['card'])){
+                            $sql = "INSERT INTO users VALUES('$user','$pass', '$birthday', '$first_name', '$last_name', NULL, 0)";
+                        }else{
+                            if(isValid($card)){
+                                $sql = "INSERT INTO users VALUES('$user','$pass', '$birthday', '$first_name', '$last_name', '$card', 0)";
+                            }else{
+                                echo '<h4>Wrong credentials for card</h4>';
+                            }
+                        }
+
+                        $result = mysqli_query($conn, $sql);
+                        if ($result) {
+                            session_start();
+                            $_SESSION['logged'] = true;
+                            $_SESSION['username'] = $user;
+
+                            header("location: profile.php");
+                        } else {
+                            echo "<h4>Failure!</h4>";
+                        }
                     } else {
-                        echo "Welcome!";
-                        session_start();
-                        $_SESSION['logged'] = true;
-                        $_SESSION['username'] = $user;
-                        
-                        header("location: profile.php");
+                        echo "<h4>That username already exists! Please try again with another.</h4>";
                     }
                 } else {
-                    echo "All fields are required!";
+                    echo "<h4>All fields are required!</h4>";
                 }
             }
             ?>

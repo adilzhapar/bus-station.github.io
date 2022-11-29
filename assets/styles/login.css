@@ -43,3 +43,61 @@ html, body {
     gap: 15px;
     margin-left: 2%;
 }
+
+.link {
+    text-decoration: none;
+    font-size: larger;
+    color: whitesmoke;
+    padding: 10px;
+}
+
+.link:hover {
+    text-decoration: underline;;
+}
+
+.chosen {
+    border: 1px solid whitesmoke;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 20px;
+    justify-content: center;
+    height: 70vh;
+}
+
+.login-form {
+    margin-top: 30px;
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inp-tag {
+    color: whitesmoke;
+    font-size: larger;
+}
+
+.inp {
+    font-size: larger;
+}
+
+.inp-btn {
+    margin-top: 20px;
+    border: none;
+    font-size: x-large;
+    border-radius: 10px;
+    padding: 7px;
+    font-weight: 600;
+    background-image: linear-gradient(to bottom right, #F9D796, #F39F86);
+
+}
+
+.inp-btn:hover {
+    cursor: pointer;
+}

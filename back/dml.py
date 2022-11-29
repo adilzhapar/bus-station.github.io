@@ -12,8 +12,10 @@ tickets_query = """INSERT INTO tickets VALUES
 
 orders_query = """INSERT INTO orders VALUES(
     0, 'zhaparka', 0, TRUE, 'jeep', TRUE, 0, 1, 35000, TRUE)"""
+orders_query2 = """INSERT INTO orders VALUES(
+    1, 'zhaparka', 0, FALSE, 'cargo', FALSE, 0, 1, 26000, TRUE)"""
 
-cur.execute(orders_query)
+cur.execute(orders_query2)
 
 conn_object.commit()
 

@@ -43,3 +43,35 @@ html, body {
     gap: 15px;
     margin-left: 2%;
 }
+
+h4, h1{
+    color: whitesmoke;
+}
+
+.user-info {
+    margin-left: 50px;
+}
+
+
+
+.h-head {
+    margin: 50px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    max-width: fit-content;
+    padding: 4px;
+}
+
+.order-table {
+    margin-left: 50px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px !important;
+}
+
+table, th, td {
+    border: 1px solid whitesmoke;
+    border-collapse: collapse;
+    padding: 5px;
+    color: whitesmoke;
+    font-size: large;    
+}

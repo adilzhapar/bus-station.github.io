@@ -37,15 +37,25 @@
         </div>
 
         <div class="content">
-            <p><a href="register.php">Register</a> | <a href="login.php">Login</a></p>
+            <div class="">
+                <a class="link" href="register.php">Register</a> 
+                <span class="link">|</span>
+                <a class="link chosen" href="login.php">Login</a>
+            </div>
 
-            <form action="" method="POST">
+            <form action="" method="POST" class="login-form">
 
                 <fieldset>
 
-                    Username: <input type="text" name="user"><br />
-                    Password: <input type="password" name="pass"><br />
-                    <input type="submit" value="Login" name="submit" />
+                    <div class="">
+                        <h4 class="inp-tag">Username:</h4> 
+                        <input class="inp" type="text" name="user"><br />
+                    </div>
+                    <div class="">
+                        <h4 class="inp-tag">Password:</h4> 
+                        <input class="inp" type="password" name="pass"><br />
+                    </div>
+                    <input class="inp-btn" type="submit" value="Login" name="submit" />
 
                 </fieldset>
 
@@ -77,7 +87,10 @@
                         header("location: profile.php");
                     }
                 } else {
-                    echo "All fields are required!";
+                    echo "
+                    <script>
+                        alert('All fields are required!');
+                    </script>";
                 }
             }
             ?>
