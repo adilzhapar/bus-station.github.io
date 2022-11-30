@@ -11,9 +11,9 @@ tickets_query = """INSERT INTO tickets VALUES
 (0, 'Almaty', 'Astana', '2022-11-29', '2022-12-01', 13000)"""
 
 orders_query = """INSERT INTO orders VALUES(
-    0, 'zhaparka', 0, TRUE, 'jeep', TRUE, 0, 1, 35000, TRUE)"""
+    default, 'zhaparka', 0, TRUE, 'jeep', TRUE, 0, 1, 35000, TRUE)"""
 orders_query2 = """INSERT INTO orders VALUES(
-    1, 'zhaparka', 0, FALSE, 'cargo', FALSE, 0, 1, 26000, TRUE)"""
+    default, 'zhaparka', 0, FALSE, 'cargo', FALSE, 0, 1, 26000, TRUE)"""
 
 cur.execute(orders_query)
 cur.execute(orders_query2)

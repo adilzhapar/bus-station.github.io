@@ -20,7 +20,7 @@ users_query = '''CREATE TABLE users(
 )'''
 
 orders_query = '''CREATE TABLE orders(
-    order_id INT NOT NULL,
+    order_id INT NOT NULL AUTO_INCREMENT,
     username VARCHAR(100) NOT NULL,
     ticket_id INT NOT NULL,
     isTwoWay BOOLEAN,

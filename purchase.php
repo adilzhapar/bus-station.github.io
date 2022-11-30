@@ -69,13 +69,11 @@
                     $cost = $row['cost'];
                     echo '</div>';
                 }
-                $query2 = mysqli_query($conn, "SELECT COUNT('*') from orders");
-                $next_id = mysqli_fetch_array($query2)[0];
-                $query3 = mysqli_query($conn, "SELECT COUNT('*') from orders where username=$user");
+                
+                $query3 = mysqli_query($conn, "SELECT COUNT('*') from orders where username='$user'");
                 $orderNums = mysqli_fetch_array($query3)[0];
                 
             ?>
-
             <form action="" method="POST">
                 <input type="checkbox" value="is Two Way" name="isTwoWay">
                 <label for="isTwoWay">Is Two Way?</label>
@@ -98,10 +96,9 @@
                 
                 <input type="submit" name="buy" value="Buy">
             </form>
-
             <?php
                 if(isset($_POST['buy'])){
-                    $total = 0;
+                    $total = $cost;
                     $busType = $_POST['busType'];
                     if(isset($_POST['isTwoWay'])){
                         $total = $cost * 2;
@@ -139,8 +136,19 @@
                     if(($orderNums + $amnt) % 5 == 0){
                         $total *= 0.9;
                     }
+                    // echo $next_id . ' order_id <br>';
+                    // echo $user . ' current username <br>';
+                    // echo $id . 'ticket_id <br>';
+                    // echo $isTwoWay . ' is Two Way<br>';
+                    // echo $busType . ' bus type <br>';
+                    // echo $vip . ' vip <br>';
+                    // echo $discount . ' discount <br>';
+                    // echo $amnt . ' amount <br>';
+                    // echo $total . ' total sum<br>';
+
                     
-                    $sql = "INSERT INTO orders VALUES ($next_id, '$user', $id, $isTwoWay, '$busType', $vip, $discount, $amnt, $total, TRUE)";
+                    
+                    $sql = "INSERT INTO orders VALUES (DEFAULT, '$user', $id, $isTwoWay, '$busType', $vip, $discount, $amnt, $total, TRUE)";
 
                     // $query3 = mysqli_query($conn, $sql);
                     if(mysqli_query($conn, $sql)){  
