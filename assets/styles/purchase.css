@@ -1,49 +1,97 @@
-html, body {
-    background-color: #393939;
-    margin: 0;
-    padding: 0;
-    font-family:Arial, Helvetica, sans-serif;
+html,
+body {
+  background-color: #393939;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.txt{
-    color: #393939;
+.txt {
+  color: #393939;
 }
 
 .header {
-    background-image: linear-gradient(to bottom right, #F9D796, #F39F86);
-    height: 10vh;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-
+  background-image: linear-gradient(to bottom right, #f9d796, #f39f86);
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
 .header-btns {
-    display: flex;
-    gap: 20%;
+  display: flex;
+  gap: 20%;
 }
 
 .header-link {
-    text-decoration: none;
+  text-decoration: none;
 }
 
-
-.footer{
-    background-image: linear-gradient(to bottom right,  #F9D796, #F39F86);
-    display: flex;
-    justify-content: flex-start;
-    height: 8vh;
-    width: 100vw;
-    position: absolute;
-    bottom: 0;
+.footer {
+  background-image: linear-gradient(to bottom right, #f9d796, #f39f86);
+  display: flex;
+  justify-content: flex-start;
+  height: 8vh;
+  width: 100vw;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer-info {
-    display: flex;
-    gap: 15px;
-    margin-left: 2%;
+  display: flex;
+  gap: 15px;
+  margin-left: 2%;
 }
 
-h4, h1{
-    color: whitesmoke;
+h4,
+h1 {
+  color: whitesmoke;
+}
+
+.content {
+  display: flex;
+}
+
+.purchase_obj,
+.details-obj {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 30px 20px;
+  border: 1px solid whitesmoke;
+  border-radius: 10px;
+  width: fit-content;
+  padding: 1em;
+}
+
+.details-obj {
+  justify-content: space-between;
+  font-size: larger;
+  color: whitesmoke;
+}
+
+.custom-select {
+  border-radius: 10px;
+  font-size: large;
+  display: inline-block;
+  overflow: hidden;
+  border: 1px solid #cccccc;
+}
+
+
+.amnt-inp {
+    border: 1px solid #cccccc;
+    border-radius: 10px;
+    font-size: large;
+    display: inline-block;
+}
+
+.form-btn {
+    border: none;
+    font-size: large;
+    border-radius: 10px;
+    padding: 3px;
+    font-weight: 600;
+    background-image: linear-gradient(to bottom right, #F9D796, #F39F86);
+
 }

@@ -74,27 +74,30 @@
                 $orderNums = mysqli_fetch_array($query3)[0];
                 
             ?>
-            <form action="" method="POST">
-                <input type="checkbox" value="is Two Way" name="isTwoWay">
+            <form action="" method="POST" class="details-obj">
+                <div><input type="checkbox" value="is Two Way" name="isTwoWay">
                 <label for="isTwoWay">Is Two Way?</label>
-                <input type="checkbox" value="Night road" name="nightRoad">
+                </div>
+                <div><input type="checkbox" value="Night road" name="nightRoad">
                 <label for="nightRoad">Go at night?</label>
-                <select name="busType" id="">
+                </div>
+                <select class="custom-select" name="busType" id="">
                     <option value="cargo">Cargo</option>
                     <option value="jeep">Jeep</option>
                     <option value="bus">Bus</option>
                 </select>
-                <input type="checkbox" placeholder="is VIP" name="vip">
+                <div><input type="checkbox" placeholder="is VIP" name="vip">
                 <label for="vip">Is VIP?</label>
-                <select name="discount" id="">
+                </div>
+                <select class="custom-select" name="discount" id="">
                     <option value="none">None</option>
                     <option value="one_parent">One Parent</option>
                     <option value="retiree">Retiree</option>
                     <option value="veteran">Veteran</option>
                 </select>
-                <input type="text" placeholder="amount" name="amount">
+                <input class="amnt-inp" type="text" placeholder="amount" name="amount">
                 
-                <input type="submit" name="buy" value="Buy">
+                <input class="form-btn" type="submit" name="buy" value="Buy">
             </form>
             <?php
                 if(isset($_POST['buy'])){
